@@ -63,11 +63,8 @@ def mimic_dict(filename):
             mimic_dict[prev].append(word)
             prev = word
 
-    print(mimic_dict)
         
     return mimic_dict
-
-mimic_dict("alice.txt")
 
 
 
@@ -79,10 +76,12 @@ def print_mimic(mimic_dict, word):
     for unused_i in range(200):
         print(word),
         nexts = mimic_dict.get(word)
-    if not nexts:
-        nexts = mimic_dict[''] 
+        if not nexts:
+            nexts = mimic_dict[''] 
         word = random.choice(nexts) 
-    raise NotImplementedError("Get to Work!")
+
+
+
 
 
 # Provided main(), calls mimic_dict() and mimic()
@@ -92,6 +91,7 @@ def main():
         sys.exit(1)
 
     d = mimic_dict(sys.argv[1])
+    print(d)
     print_mimic(d, '')
 
 
